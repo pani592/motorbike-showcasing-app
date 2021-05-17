@@ -56,6 +56,8 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cvCruisersCategory"
+
                     style="@style/CategoryCardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -77,6 +79,8 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cvRoadstersCategory"
+
                     style="@style/CategoryCardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -98,6 +102,8 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSportbikesCategory"
+
                     style="@style/CategoryCardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
