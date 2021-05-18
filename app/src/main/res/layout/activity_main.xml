@@ -70,11 +70,18 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+                        <ImageView
+                            android:src="@drawable/mcicon"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:layout_margin="8dp"
+                            android:layout_alignParentLeft="true"/>
 
                         <TextView
                             style="@style/CategoryTextStyle"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
                             android:text="Cruisers" />
                     </RelativeLayout>
 
@@ -93,11 +100,18 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+                        <ImageView
+                            android:src="@drawable/mricon"
+                            android:layout_width="96dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:layout_alignParentLeft="true"/>
 
                         <TextView
                             style="@style/CategoryTextStyle"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
                             android:text="Roadsters" />
                     </RelativeLayout>
 
@@ -116,11 +130,18 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+                        <ImageView
+                            android:src="@drawable/msicon"
+                            android:layout_width="96dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:layout_alignParentLeft="true"/>
 
                         <TextView
                             style="@style/CategoryTextStyle"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
                             android:text="Sportbikes" />
                     </RelativeLayout>
 

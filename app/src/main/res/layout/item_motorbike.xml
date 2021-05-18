@@ -35,6 +35,7 @@
                 android:gravity="top"
                 android:layout_gravity="right"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="Model" />
 
             <TextView
