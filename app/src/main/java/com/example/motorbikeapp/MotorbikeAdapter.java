@@ -21,39 +21,38 @@ public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
         super(context, 0, aBikes);
     }
 
-    //translates a particular 'Motorbike' given a position
-    //into a relevant row within an AdapterView
+    // Converts an instance of 'Motorbike' into a row within an AdapterView
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        //get the data item for this position
+        // Get the data of the bike from the position specified
         final Motorbike bike = getItem(position);
 
-        //check if an existing view is being reused, otherwise inflate the view
+        // Check if an existing view is being reused, otherwise add the info to the view
         ViewHolder viewHolder;
-        if (convertView == null){
+        if (convertView == null) {
             viewHolder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_motorbike,parent,false);
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.item_motorbike, parent, false);
 
             viewHolder.ivMotorbikeImage =
-                    (ImageView)convertView.findViewById(R.id.ivMotorbikeImage);
+                    (ImageView) convertView.findViewById(R.id.ivMotorbikeImage);
             viewHolder.tvModel =
-                    (TextView)convertView.findViewById(R.id.tvModel);
+                    (TextView) convertView.findViewById(R.id.tvModel);
             viewHolder.tvCategory =
-                    (TextView)convertView.findViewById(R.id.tvCategory);
+                    (TextView) convertView.findViewById(R.id.tvCategory);
             convertView.setTag(viewHolder);
             viewHolder.tvCompany =
-                    (TextView)convertView.findViewById(R.id.tvCompany);
+                    (TextView) convertView.findViewById(R.id.tvCompany);
             viewHolder.tvPrice =
-                    (TextView)convertView.findViewById(R.id.tvPrice);
+                    (TextView) convertView.findViewById(R.id.tvPrice);
             convertView.setTag(viewHolder);
 
-        } else{
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        //Populate the data into the template view using the data object
+        // Populate the data into the template view using the data object
         viewHolder.tvModel.setText(bike.getModel());
         viewHolder.tvCompany.setText(bike.getCompany());
         viewHolder.tvCategory.setText(bike.getCategory());
