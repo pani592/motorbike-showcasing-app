@@ -63,7 +63,7 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="#5fb4ed">>
+                    app:cardBackgroundColor="#5fb4ed">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="#b58350">>
+                    app:cardBackgroundColor="#b58350">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
