@@ -16,10 +16,22 @@
         android:padding="16dp"
         tools:context=".ListActivity">
 
+        <TextView
+            android:id="@+id/tv_emptyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sorry, no results found - please try other keywords"
+            android:textSize="28sp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
         <ListView
             android:id="@+id/lvMotorbikes"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class ListActivity extends AppCompatActivity {
         this.setTitle(filter);
 
         lvMotorbikes = (ListView) findViewById(R.id.lvMotorbikes);
+        lvMotorbikes.setEmptyView(findViewById(R.id.tv_emptyTextView));
         ArrayList<Motorbike> aBikes = new ArrayList<Motorbike>();
         aBikes = MotorbikeProvider.generateData(filter);
 
