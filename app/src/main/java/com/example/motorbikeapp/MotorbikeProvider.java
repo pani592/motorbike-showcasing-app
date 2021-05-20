@@ -27,7 +27,7 @@ public class MotorbikeProvider {
             R.drawable.ms001a, R.drawable.ms002a, R.drawable.ms003a, R.drawable.ms004a, R.drawable.ms005a,
             R.drawable.ms006a, R.drawable.ms007a, R.drawable.ms008a, R.drawable.ms009a, R.drawable.ms010a};
 
-    public static ArrayList<Motorbike> generateData(String categoryName) {
+    public static ArrayList<Motorbike> generateData(String filter) {
         ArrayList<Motorbike> bikes = new ArrayList<Motorbike>();
 
         for (int i = 0; i < models.length; i++) {
@@ -37,7 +37,9 @@ public class MotorbikeProvider {
             String category =  categories[i];
             int imageaddr = imageaddrs[i];
 
-            if (categoryName.contains(categories[i])) {
+            String s = filter.toLowerCase();
+
+            if (category.toLowerCase().contains(s) || model.toLowerCase().contains(s) || company.toLowerCase().contains(s)) {
                 Motorbike aBike = new Motorbike(model, price, company, category, imageaddr);
                 bikes.add(aBike);
             }

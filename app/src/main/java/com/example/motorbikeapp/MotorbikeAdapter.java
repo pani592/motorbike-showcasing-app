@@ -15,7 +15,7 @@ public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
     private static class ViewHolder {
         public ImageView ivMotorbikeImage;
         public TextView tvModel, tvCompany, tvCategory, tvPrice;
-    }
+}
 
     public MotorbikeAdapter(Context context, ArrayList<Motorbike> aBikes) {
         super(context, 0, aBikes);

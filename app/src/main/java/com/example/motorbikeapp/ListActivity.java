@@ -25,12 +25,12 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         Intent thisIntent = getIntent();
-        String categoryName = thisIntent.getStringExtra("categoryName");
-        this.setTitle(categoryName);
+        String filter = thisIntent.getStringExtra("filter");
+        this.setTitle(filter);
 
         lvMotorbikes = (ListView) findViewById(R.id.lvMotorbikes);
         ArrayList<Motorbike> aBikes = new ArrayList<Motorbike>();
-        aBikes = MotorbikeProvider.generateData(categoryName);
+        aBikes = MotorbikeProvider.generateData(filter);
 
         bikeAdapter = new MotorbikeAdapter(this, aBikes);
         lvMotorbikes.setAdapter(bikeAdapter);

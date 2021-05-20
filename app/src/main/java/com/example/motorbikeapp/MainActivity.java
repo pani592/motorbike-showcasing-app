@@ -1,10 +1,13 @@
 package com.example.motorbikeapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
-            cruisersListActivity.putExtra("categoryName", "Cruisers");
+            cruisersListActivity.putExtra("filter", "Cruiser");
 
             startActivity(cruisersListActivity);
         }
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             Intent roadstersListActivity = new Intent(getBaseContext(), ListActivity.class);
-            roadstersListActivity.putExtra("categoryName", "Roadsters");
+            roadstersListActivity.putExtra("filter", "Roadster");
 
             startActivity(roadstersListActivity);
         }
@@ -51,9 +54,40 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             Intent sportbikesListActivity = new Intent(getBaseContext(), ListActivity.class);
-            sportbikesListActivity.putExtra("categoryName", "Sportbikes");
+            sportbikesListActivity.putExtra("filter", "Sportbike");
 
             startActivity(sportbikesListActivity);
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Reset SearchView
+                searchView.clearFocus();
+                searchView.setQuery("", false);
+                searchView.setIconified(true);
+                searchItem.collapseActionView();
+                //complete SearchActivity by yourself
+                Intent searchActivity = new Intent(getBaseContext(), ListActivity.class);
+                searchActivity.putExtra("filter", query);
+                startActivity(searchActivity);
+
+                // Set activity title to search query
+                //MainActivity.this.setTitle(query);
+                return true;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+        return true;
+    }
 }
