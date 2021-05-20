@@ -1,157 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    tools:context=".MainActivity"
+    style="@style/backgroundStyle"
+    >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="20dp">
-
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:background="#2196f3">
                 <TextView
                     style="@style/CategoryTextStyle"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Item 1"
-                    android:textColor="@color/black" />
-
+                    android:text="Top Picks" />
                 <TextView
                     style="@style/CategoryTextStyle"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Item 2"
-                    android:textColor="@color/black" />
-
+                    android:text="Top Picks" />
                 <TextView
                     style="@style/CategoryTextStyle"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Item 3"
-                    android:textColor="@color/black" />
+                    android:text="Top Picks" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="450dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvCruisersCategory"
-
                     style="@style/CategoryCardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="#5fb4ed">
-
+                    android:layout_margin="8dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <ImageView
-                            android:src="@drawable/mcicon"
-                            android:layout_width="96dp"
-                            android:layout_height="96dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
                             android:layout_margin="8dp"
-                            android:layout_alignParentLeft="true"/>
-
+                            android:src="@drawable/mcicon" />
                         <TextView
                             style="@style/CategoryTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:text="Cruisers" />
                     </RelativeLayout>
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvRoadstersCategory"
-
                     style="@style/CategoryCardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="#59b550">
+                    android:layout_margin="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <ImageView
-                            android:src="@drawable/mricon"
-                            android:layout_width="96dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
                             android:layout_margin="8dp"
-                            android:layout_alignParentLeft="true"/>
-
+                            android:src="@drawable/mricon" />
                         <TextView
                             style="@style/CategoryTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:text="Roadsters" />
                     </RelativeLayout>
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvSportbikesCategory"
-
                     style="@style/CategoryCardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="#b58350">
+                    android:layout_margin="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <ImageView
-                            android:src="@drawable/msicon"
-                            android:layout_width="96dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
                             android:layout_margin="8dp"
-                            android:layout_alignParentLeft="true"/>
-
+                            android:src="@drawable/msicon" />
                         <TextView
                             style="@style/CategoryTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:text="Sportbikes" />
                     </RelativeLayout>
-
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-
         </LinearLayout>
-
-    </ScrollView>
-
-
-</LinearLayout>
+</ScrollView>

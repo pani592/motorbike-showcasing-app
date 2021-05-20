@@ -14,59 +14,56 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+    <TextView
+        android:id ="@+id/tvModel"
+        style="@style/CategoryTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:text="Model" />
+
         <ImageView
             android:id="@+id/ivMotorbikeImage"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_margin="8dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_below="@+id/tvModel"
+            android:layout_alignParentStart="true"/>
 
         <LinearLayout
+            android:layout_below="@+id/tvModel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_alignParentRight="true">
-
-            <TextView
-                android:id ="@+id/tvModel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="top"
-                android:layout_gravity="right"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="Model" />
+            android:layout_alignParentEnd="true"
+            >
 
             <TextView
                 android:id="@+id/tvCompany"
+                style="@style/standardTextStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center"
-                android:layout_gravity="right"
-                android:text="Company"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:text="Company"/>
 
             <TextView
                 android:id="@+id/tvCategory"
+                style="@style/standardTextStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="right"
-                android:text="Category"
-                android:textSize="12sp" />
+                android:text="Category" />
 
             <TextView
                 android:id="@+id/tvPrice"
+                style="@style/standardTextStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
                 android:gravity="bottom"
                 android:layout_gravity="right"
-                android:text="$Price"
-                android:textSize="12sp" />
+                android:text="$Price" />
         </LinearLayout>
     </RelativeLayout>
     <!--android:layout_marginEnd="12dp"-->

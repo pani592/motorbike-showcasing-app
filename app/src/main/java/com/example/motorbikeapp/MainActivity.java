@@ -1,6 +1,7 @@
 package com.example.motorbikeapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         CardView sportbikesCategory = (CardView) findViewById(R.id.cvSportbikesCategory);
         sportbikesCategory.setOnClickListener(sportbikesCategoryHandler);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // turn off night mode
     }
 
     View.OnClickListener cruisersCategoryHandler = new View.OnClickListener() {
