@@ -18,7 +18,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MotorbikeRecyclerAdapter.OnItemListener {
+    public static final String BIKE_DETAIL_KEY = "bike";
+
     private RecyclerView rvTopPicks;
     private RecyclerView.LayoutManager topPicksLayoutManager;
     private MotorbikeRecyclerAdapter topPicksAdapter;
@@ -27,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        // When we restart the MainActivity, we need to sort the TopMotorbikeList to check for any
+        // changes in times viewed
+        TopMotorbikeList.getInstance().sortBikeList();
+
+        // We then update the RecyclerView in MainActivity to show the new changes (if any)
         updateTopPicks();
     }
 
@@ -131,13 +139,24 @@ public class MainActivity extends AppCompatActivity {
         TopMotorbikeList.getInstance().sortBikeList();
 
         // Load the bikes into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList());
+        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList(), this);
         rvTopPicks.setAdapter(topPicksAdapter);
     }
 
     private void updateTopPicks() {
-        // Load the bikes into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList());
+        // Load the bikes from TopMotorbikeList into the adapter
+        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList(), this);
         rvTopPicks.setAdapter(topPicksAdapter);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        // Increment the number of views for the selected bike, in TopMotorbikeList
+        TopMotorbikeList.getInstance().updateTimesViewed(TopMotorbikeList.getInstance().getBikeList().get(position).getModel());
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(BIKE_DETAIL_KEY, TopMotorbikeList.getInstance().getBikeList().get(position));
+
+        startActivity(intent);
     }
 }

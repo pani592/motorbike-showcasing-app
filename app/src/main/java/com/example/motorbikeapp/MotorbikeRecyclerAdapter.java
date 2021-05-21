@@ -12,18 +12,36 @@ import java.util.ArrayList;
 
 public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecyclerAdapter.ViewHolder> {
     private ArrayList<Motorbike> localDataSet;
+    private OnItemListener localOnItemListener;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    // Initialize the dataset and OnItemListener of the adapter
+    public MotorbikeRecyclerAdapter(ArrayList<Motorbike> dataSet, OnItemListener onItemListener) {
+        localDataSet = dataSet;
+        this.localOnItemListener = onItemListener;
+    }
+
+    // ViewHolder class
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final ImageView ivMotorbikeImage;
         private final TextView tvModelName;
         private final TextView tvTimesViewed;
 
-        public ViewHolder(View view) {
+        OnItemListener onItemListener;
+
+        public ViewHolder(View view, OnItemListener onItemListener) {
             super(view);
 
             ivMotorbikeImage = (ImageView) view.findViewById(R.id.ivMotorbikeImage);
             tvModelName = (TextView) view.findViewById(R.id.tvModelName);
             tvTimesViewed = (TextView) view.findViewById(R.id.tvTimesViewed);
+            this.onItemListener = onItemListener;
+
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onItemListener.onItemClick(getAdapterPosition());
         }
 
         public ImageView getIvMotorbikeImage() {
@@ -39,11 +57,6 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
         }
     }
 
-    // Initialize the dataset of the adapter
-    public MotorbikeRecyclerAdapter(ArrayList<Motorbike> dataSet) {
-        localDataSet = dataSet;
-    }
-
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -51,7 +64,7 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_top_motorbike, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, localOnItemListener);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -85,5 +98,10 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
     @Override
     public int getItemCount() {
         return (int) localDataSet.size() / 2;
+    }
+
+    public interface OnItemListener {
+
+        void onItemClick(int position);
     }
 }

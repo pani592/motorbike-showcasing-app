@@ -28,7 +28,6 @@ public class TopMotorbikeList {
                 bikeList.get(i).incTimesViewed();
                 System.out.println(model + " times viewed updated to: " + bikeList.get(i).getTimesViewed());
 
-                sortBikeList();
                 break;
             }
         }
