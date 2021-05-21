@@ -19,37 +19,15 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
-    private static ArrayList<Motorbike> bikeList;
+    private RecyclerView rvTopPicks;
+    private RecyclerView.LayoutManager topPicksLayoutManager;
+    private MotorbikeRecyclerAdapter topPicksAdapter;
+    private LinearLayoutManager topPicksHorizontalLayout;
 
-    static RecyclerView rvTopPicks;
-    static RecyclerView.LayoutManager topPicksLayoutManager;
-    static MotorbikeRecyclerAdapter topPicksAdapter;
-    static LinearLayoutManager topPicksHorizontalLayout;
-
-    public static void updateTimesViewed(String model) {
-        for (int i = 0; i < bikeList.size(); i++) {
-
-            if (bikeList.get(i).getModel() == model) {
-                bikeList.get(i).incTimesViewed();
-                System.out.println(model + " times viewed updated to: " + bikeList.get(i).getTimesViewed());
-
-                sortBikeList();
-                reloadTopPicks();
-                break;
-            }
-        }
-    }
-
-    private static void reloadTopPicks() {
-        // Load the bikes into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(bikeList);
-        rvTopPicks.setAdapter(topPicksAdapter);
-    }
-
-    private static void sortBikeList() {
-
-        bikeList.sort(Comparator.comparing(bike -> bike.getTimesViewed()));
-        Collections.reverse(bikeList);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateTopPicks();
     }
 
     @Override
@@ -57,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.setTitle("Home Screen");
-
-        // Create the list of 30 bikes
-        bikeList = MotorbikeProvider.generateData("");
 
         // Find the RecyclerView for our top picks and initialise it
         rvTopPicks = findViewById(R.id.rvTopPicks);
@@ -76,36 +51,6 @@ public class MainActivity extends AppCompatActivity {
         sportbikesCategory.setOnClickListener(sportbikesCategoryHandler);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // turn off night mode
     }
-
-    View.OnClickListener cruisersCategoryHandler = new View.OnClickListener() {
-        public void onClick(View view) {
-
-            Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
-            cruisersListActivity.putExtra("filter", "Cruiser");
-
-            startActivity(cruisersListActivity);
-        }
-    };
-
-    View.OnClickListener roadstersCategoryHandler = new View.OnClickListener() {
-        public void onClick(View view) {
-
-            Intent roadstersListActivity = new Intent(getBaseContext(), ListActivity.class);
-            roadstersListActivity.putExtra("filter", "Roadster");
-
-            startActivity(roadstersListActivity);
-        }
-    };
-
-    View.OnClickListener sportbikesCategoryHandler = new View.OnClickListener() {
-        public void onClick(View view) {
-
-            Intent sportbikesListActivity = new Intent(getBaseContext(), ListActivity.class);
-            sportbikesListActivity.putExtra("filter", "Sportbike");
-
-            startActivity(sportbikesListActivity);
-        }
-    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -140,6 +85,36 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    View.OnClickListener cruisersCategoryHandler = new View.OnClickListener() {
+        public void onClick(View view) {
+
+            Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
+            cruisersListActivity.putExtra("filter", "Cruiser");
+
+            startActivity(cruisersListActivity);
+        }
+    };
+
+    View.OnClickListener roadstersCategoryHandler = new View.OnClickListener() {
+        public void onClick(View view) {
+
+            Intent roadstersListActivity = new Intent(getBaseContext(), ListActivity.class);
+            roadstersListActivity.putExtra("filter", "Roadster");
+
+            startActivity(roadstersListActivity);
+        }
+    };
+
+    View.OnClickListener sportbikesCategoryHandler = new View.OnClickListener() {
+        public void onClick(View view) {
+
+            Intent sportbikesListActivity = new Intent(getBaseContext(), ListActivity.class);
+            sportbikesListActivity.putExtra("filter", "Sportbike");
+
+            startActivity(sportbikesListActivity);
+        }
+    };
+
     private void initialiseTopPicks() {
         // Set layout manager for rvTopPicks
         topPicksLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -153,10 +128,16 @@ public class MainActivity extends AppCompatActivity {
         rvTopPicks.setLayoutManager(topPicksHorizontalLayout);
 
         // Sort bikes by times viewed
-        sortBikeList();
+        TopMotorbikeList.getInstance().sortBikeList();
 
         // Load the bikes into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(bikeList);
+        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList());
+        rvTopPicks.setAdapter(topPicksAdapter);
+    }
+
+    private void updateTopPicks() {
+        // Load the bikes into the adapter
+        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList());
         rvTopPicks.setAdapter(topPicksAdapter);
     }
 }
