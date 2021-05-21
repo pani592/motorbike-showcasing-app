@@ -47,6 +47,9 @@ public class ListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int
                     position, long id) {
 
+                // Increment the number of views for the selected bike, in MainActivity
+                MainActivity.updateTimesViewed(bikeAdapter.getItem(position).getModel());
+
                 // Launch the detail view passing a bike as an extra
                 Intent intent = new Intent(ListActivity.this,
                         DetailActivity.class);

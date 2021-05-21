@@ -12,13 +12,50 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+    private static ArrayList<Motorbike> aBikes;
+
+    private static TextView tvTopModel1;
+    private static TextView tvTopModel2;
+    private static TextView tvTopModel3;
+
+    public static void updateTimesViewed(String model) {
+        for (int i = 0; i < aBikes.size(); i++){
+
+            if (aBikes.get(i).getModel() == model) {
+                aBikes.get(i).incTimesViewed();
+                System.out.println(model + " times viewed updated to: " +aBikes.get(i).getTimesViewed());
+
+                loadTopPicks();
+                break;
+            }
+        }
+    }
+
+    private static void loadTopPicks() {
+        tvTopModel1.setText(aBikes.get(0).getModel() + " Views: " + String.valueOf(aBikes.get(0).getTimesViewed()));
+        tvTopModel2.setText(aBikes.get(29).getModel() + " Views: " + String.valueOf(aBikes.get(29).getTimesViewed()));
+        tvTopModel3.setText(aBikes.get(15).getModel() + " Views: " + String.valueOf(aBikes.get(15).getTimesViewed()));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.setTitle("Home Screen");
+
+        // Create list of all bikes
+        aBikes = MotorbikeProvider.generateData("");
+
+        // Load top picks into views
+        tvTopModel1 = (TextView) findViewById(R.id.tvTopModel1);
+        tvTopModel2 = (TextView) findViewById(R.id.tvTopModel2);
+        tvTopModel3 = (TextView) findViewById(R.id.tvTopModel3);
+        loadTopPicks();
 
         // Find Card Views on the home screen, connect them to their onClick handlers
         CardView cruisersCategory = (CardView) findViewById(R.id.cvCruisersCategory);
@@ -76,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
                 searchItem.collapseActionView();
-                //complete SearchActivity by yourself
+
+                // Start search with filter
                 Intent searchActivity = new Intent(getBaseContext(), ListActivity.class);
                 searchActivity.putExtra("filter", query);
                 startActivity(searchActivity);

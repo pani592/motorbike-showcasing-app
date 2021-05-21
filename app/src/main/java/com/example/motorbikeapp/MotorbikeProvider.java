@@ -37,12 +37,19 @@ public class MotorbikeProvider {
             String category =  categories[i];
             int imageaddr = imageaddrs[i];
 
-            String s = filter.toLowerCase();
+            if (filter != ""){
+                String s = filter.toLowerCase();
 
-            if (category.toLowerCase().contains(s) || model.toLowerCase().contains(s) || company.toLowerCase().contains(s)) {
+                if (category.toLowerCase().contains(s) || model.toLowerCase().contains(s) || company.toLowerCase().contains(s)) {
+                    Motorbike aBike = new Motorbike(model, price, company, category, imageaddr);
+                    bikes.add(aBike);
+                }
+
+            } else {
                 Motorbike aBike = new Motorbike(model, price, company, category, imageaddr);
                 bikes.add(aBike);
             }
+
         }
         return bikes;
     }
