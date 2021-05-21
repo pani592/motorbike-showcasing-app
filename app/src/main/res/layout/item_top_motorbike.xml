@@ -2,8 +2,8 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     android:layout_margin="8dp"
     android:elevation="4dp"
     app:cardCornerRadius="4dp">
@@ -15,25 +15,25 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvTopBike"
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             />
 
             <ImageView
                 android:id="@+id/ivMotorbikeImage"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_alignTop="@+id/cvTopBike"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
                 />
 
             <TextView
                 android:id="@+id/tvModelName"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/ivMotorbikeImage"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
 
                 android:text="Model"
                 android:textColor="@color/black"
@@ -42,12 +42,11 @@
             <TextView
                 android:id="@+id/tvTimesViewed"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/tvModelName"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
 
                 android:text="Views"
-                android:textColor="@color/black"
                 />
 
 

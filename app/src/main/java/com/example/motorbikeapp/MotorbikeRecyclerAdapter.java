@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecyclerAdapter.ViewHolder>
-{
+public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecyclerAdapter.ViewHolder> {
     private ArrayList<Motorbike> localDataSet;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,9 +26,17 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
             tvTimesViewed = (TextView) view.findViewById(R.id.tvTimesViewed);
         }
 
-        public ImageView getIvMotorbikeImage() { return ivMotorbikeImage; }
-        public TextView getTvModelName() { return tvModelName; }
-        public TextView getTvTimesViewed() { return tvTimesViewed; }
+        public ImageView getIvMotorbikeImage() {
+            return ivMotorbikeImage;
+        }
+
+        public TextView getTvModelName() {
+            return tvModelName;
+        }
+
+        public TextView getTvTimesViewed() {
+            return tvTimesViewed;
+        }
     }
 
     // Initialize the dataset of the adapter
@@ -56,8 +63,22 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
 
         // Replace the contents of the view with that element
         viewHolder.getIvMotorbikeImage().setImageResource(currentBike.getImage());
-        viewHolder.getTvModelName().setText(currentBike.getModel());
-        viewHolder.getTvTimesViewed().setText(String.valueOf(currentBike.getTimesViewed()));
+
+        if (currentBike.getModel().length() > 10) {
+            String truncatedModel = currentBike.getModel().substring(0, 10) + "...";
+            viewHolder.getTvModelName().setText(truncatedModel);
+        } else {
+            viewHolder.getTvModelName().setText(currentBike.getModel());
+        }
+
+        String timesViewedString;
+
+        if (currentBike.getTimesViewed() == 1) {
+            timesViewedString = currentBike.getTimesViewed() + " view";
+        } else {
+            timesViewedString = currentBike.getTimesViewed() + " views";
+        }
+        viewHolder.getTvTimesViewed().setText(timesViewedString);
     }
 
     // Return the size of the dataset (invoked by the layout manager)

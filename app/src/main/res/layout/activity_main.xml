@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
-                android:padding="20dp"
+                android:padding="4dp"
                 android:background="#2196f3">
 
                 <androidx.recyclerview.widget.RecyclerView

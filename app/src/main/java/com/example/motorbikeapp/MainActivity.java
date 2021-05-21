@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     static LinearLayoutManager topPicksHorizontalLayout;
 
     public static void updateTimesViewed(String model) {
-        for (int i = 0; i < bikeList.size(); i++){
+        for (int i = 0; i < bikeList.size(); i++) {
 
             if (bikeList.get(i).getModel() == model) {
                 bikeList.get(i).incTimesViewed();
@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 //MainActivity.this.setTitle(query);
                 return true;
             }
+
             @Override
             public boolean onQueryTextChange(String s) {
                 return false;
