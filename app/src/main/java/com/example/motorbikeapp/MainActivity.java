@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +21,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private static ArrayList<Motorbike> aBikes;
 
-    private static TextView tvTopModel1;
-    private static TextView tvTopModel2;
-    private static TextView tvTopModel3;
+    RecyclerView rvTopPicks;
+    RecyclerView.LayoutManager topPicksLayoutManager;
+    MotorbikeRecyclerAdapter topPicksAdapter;
+    LinearLayoutManager topPicksHorizontalLayout;
 
     public static void updateTimesViewed(String model) {
         for (int i = 0; i < aBikes.size(); i++){
@@ -30,16 +33,9 @@ public class MainActivity extends AppCompatActivity {
                 aBikes.get(i).incTimesViewed();
                 System.out.println(model + " times viewed updated to: " +aBikes.get(i).getTimesViewed());
 
-                loadTopPicks();
                 break;
             }
         }
-    }
-
-    private static void loadTopPicks() {
-        tvTopModel1.setText(aBikes.get(0).getModel() + " Views: " + String.valueOf(aBikes.get(0).getTimesViewed()));
-        tvTopModel2.setText(aBikes.get(29).getModel() + " Views: " + String.valueOf(aBikes.get(29).getTimesViewed()));
-        tvTopModel3.setText(aBikes.get(15).getModel() + " Views: " + String.valueOf(aBikes.get(15).getTimesViewed()));
     }
 
     @Override
@@ -48,14 +44,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.setTitle("Home Screen");
 
-        // Create list of all bikes
+        // Create the list of 30 bikes
         aBikes = MotorbikeProvider.generateData("");
 
-        // Load top picks into views
-        tvTopModel1 = (TextView) findViewById(R.id.tvTopModel1);
-        tvTopModel2 = (TextView) findViewById(R.id.tvTopModel2);
-        tvTopModel3 = (TextView) findViewById(R.id.tvTopModel3);
-        loadTopPicks();
+        // Find the RecyclerView for our top picks and initialise it
+        rvTopPicks = findViewById(R.id.rvTopPicks);
+        initialiseTopPicks();
 
         // Find Card Views on the home screen, connect them to their onClick handlers
         CardView cruisersCategory = (CardView) findViewById(R.id.cvCruisersCategory);
@@ -129,5 +123,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         return true;
+    }
+
+    private void initialiseTopPicks() {
+        // Set layout manager for rvTopPicks
+        topPicksLayoutManager = new LinearLayoutManager(getApplicationContext());
+        rvTopPicks.setLayoutManager(topPicksLayoutManager);
+
+        // Set horizontal layout manager for rvTopPicks
+        topPicksHorizontalLayout = new LinearLayoutManager(
+                MainActivity.this,
+                LinearLayoutManager.HORIZONTAL,
+                false);
+        rvTopPicks.setLayoutManager(topPicksHorizontalLayout);
+
+        // Load the bikes into the adapter
+        topPicksAdapter = new MotorbikeRecyclerAdapter(aBikes);
+        rvTopPicks.setAdapter(topPicksAdapter);
     }
 }

@@ -22,27 +22,14 @@
                 android:gravity="center_horizontal"
                 android:padding="20dp"
                 android:background="#2196f3">
-                <TextView
-                    android:id="@+id/tvTopModel1"
-                    style="@style/CategoryTextStyle"
-                    android:layout_width="0dp"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTopPicks"
+                    android:scrollbars="horizontal"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Top Pick 1" />
-                <TextView
-                    android:id="@+id/tvTopModel2"
-                    style="@style/CategoryTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Top Pick 2" />
-                <TextView
-                    android:id="@+id/tvTopModel3"
-                    style="@style/CategoryTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Top Pick 3" />
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
             </LinearLayout>
 
             <LinearLayout

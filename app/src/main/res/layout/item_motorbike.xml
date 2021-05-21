@@ -66,5 +66,4 @@
                 android:text="$Price" />
         </LinearLayout>
     </RelativeLayout>
-    <!--android:layout_marginEnd="12dp"-->
 </androidx.cardview.widget.CardView>
