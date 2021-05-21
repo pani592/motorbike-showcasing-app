@@ -12,30 +12,44 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
-    private static ArrayList<Motorbike> aBikes;
+    private static ArrayList<Motorbike> bikeList;
 
-    RecyclerView rvTopPicks;
-    RecyclerView.LayoutManager topPicksLayoutManager;
-    MotorbikeRecyclerAdapter topPicksAdapter;
-    LinearLayoutManager topPicksHorizontalLayout;
+    static RecyclerView rvTopPicks;
+    static RecyclerView.LayoutManager topPicksLayoutManager;
+    static MotorbikeRecyclerAdapter topPicksAdapter;
+    static LinearLayoutManager topPicksHorizontalLayout;
 
     public static void updateTimesViewed(String model) {
-        for (int i = 0; i < aBikes.size(); i++){
+        for (int i = 0; i < bikeList.size(); i++){
 
-            if (aBikes.get(i).getModel() == model) {
-                aBikes.get(i).incTimesViewed();
-                System.out.println(model + " times viewed updated to: " +aBikes.get(i).getTimesViewed());
+            if (bikeList.get(i).getModel() == model) {
+                bikeList.get(i).incTimesViewed();
+                System.out.println(model + " times viewed updated to: " + bikeList.get(i).getTimesViewed());
 
+                sortBikeList();
+                reloadTopPicks();
                 break;
             }
         }
+    }
+
+    private static void reloadTopPicks() {
+        // Load the bikes into the adapter
+        topPicksAdapter = new MotorbikeRecyclerAdapter(bikeList);
+        rvTopPicks.setAdapter(topPicksAdapter);
+    }
+
+    private static void sortBikeList() {
+
+        bikeList.sort(Comparator.comparing(bike -> bike.getTimesViewed()));
+        Collections.reverse(bikeList);
     }
 
     @Override
@@ -45,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         this.setTitle("Home Screen");
 
         // Create the list of 30 bikes
-        aBikes = MotorbikeProvider.generateData("");
+        bikeList = MotorbikeProvider.generateData("");
 
         // Find the RecyclerView for our top picks and initialise it
         rvTopPicks = findViewById(R.id.rvTopPicks);
@@ -137,8 +151,11 @@ public class MainActivity extends AppCompatActivity {
                 false);
         rvTopPicks.setLayoutManager(topPicksHorizontalLayout);
 
+        // Sort bikes by times viewed
+        sortBikeList();
+
         // Load the bikes into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(aBikes);
+        topPicksAdapter = new MotorbikeRecyclerAdapter(bikeList);
         rvTopPicks.setAdapter(topPicksAdapter);
     }
 }

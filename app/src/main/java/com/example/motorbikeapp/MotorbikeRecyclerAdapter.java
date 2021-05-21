@@ -21,12 +21,10 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
 
         public ViewHolder(View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
 
             ivMotorbikeImage = (ImageView) view.findViewById(R.id.ivMotorbikeImage);
             tvModelName = (TextView) view.findViewById(R.id.tvModelName);
             tvTimesViewed = (TextView) view.findViewById(R.id.tvTimesViewed);
-
         }
 
         public ImageView getIvMotorbikeImage() { return ivMotorbikeImage; }
@@ -53,14 +51,18 @@ public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecy
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.getTvModelName().setText(localDataSet.get(position).getModel());
+        // Get element from your dataset at this position
+        Motorbike currentBike = localDataSet.get(position);
+
+        // Replace the contents of the view with that element
+        viewHolder.getIvMotorbikeImage().setImageResource(currentBike.getImage());
+        viewHolder.getTvModelName().setText(currentBike.getModel());
+        viewHolder.getTvTimesViewed().setText(String.valueOf(currentBike.getTimesViewed()));
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    // Return the size of the dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return localDataSet.size();
+        return (int) localDataSet.size() / 2;
     }
 }
