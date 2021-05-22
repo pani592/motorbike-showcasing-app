@@ -1,17 +1,22 @@
 package com.example.motorbikeapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
     private ImageView ivMotorbikeImage;
     private TextView tvModel;
     private TextView tvCompany;
     private TextView tvPrice;
+    private ViewPager2 viewPager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,7 @@ public class DetailActivity extends AppCompatActivity {
         tvModel = (TextView) findViewById(R.id.tvModel);
         tvCompany = (TextView) findViewById(R.id.tvCompany);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
+        viewPager2 = findViewById(R.id.viewPagerImageSlider);
 
         // Get the bike that was passed from the Intent of the ListActivity
         Intent thisIntent = getIntent();
@@ -44,5 +50,12 @@ public class DetailActivity extends AppCompatActivity {
         tvPrice.setText('$' + truncatedPrice);
         int resID = bike.getImage();
         ivMotorbikeImage.setImageResource(resID);
+
+        List<MotorbikeImageSlider> sliderItems = new ArrayList<>();  // testing here - may need to move elsewhere
+        sliderItems.add(new MotorbikeImageSlider(R.drawable.mc001b));
+        sliderItems.add(new MotorbikeImageSlider(R.drawable.mc001c));
+        sliderItems.add(new MotorbikeImageSlider(R.drawable.mc001d));
+
+        viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
     }
 }
