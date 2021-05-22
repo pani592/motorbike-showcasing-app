@@ -1,10 +1,10 @@
 package com.example.motorbikeapp;
 
-public class MotorbikeImageSlider {
+public class ImageSlider {
 
     private int imageAddr;
 
-    MotorbikeImageSlider(int image){
+    ImageSlider(int image){
         this.imageAddr = image;
     }
     public int getImageAddr(){

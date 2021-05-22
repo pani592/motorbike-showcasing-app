@@ -35,19 +35,13 @@ public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.item_motorbike, parent, false);
 
-            viewHolder.ivMotorbikeImage =
-                    (ImageView) convertView.findViewById(R.id.ivMotorbikeImage);
-            viewHolder.tvModel =
-                    (TextView) convertView.findViewById(R.id.tvModel);
-            viewHolder.tvCategory =
-                    (TextView) convertView.findViewById(R.id.tvCategory);
+            viewHolder.ivMotorbikeImage = (ImageView) convertView.findViewById(R.id.ivMotorbikeImage);
+            viewHolder.tvModel = (TextView) convertView.findViewById(R.id.tvModel);
+            viewHolder.tvCategory = (TextView) convertView.findViewById(R.id.tvCategory);
             convertView.setTag(viewHolder);
-            viewHolder.tvCompany =
-                    (TextView) convertView.findViewById(R.id.tvCompany);
-            viewHolder.tvPrice =
-                    (TextView) convertView.findViewById(R.id.tvPrice);
+            viewHolder.tvCompany = (TextView) convertView.findViewById(R.id.tvCompany);
+            viewHolder.tvPrice = (TextView) convertView.findViewById(R.id.tvPrice);
             convertView.setTag(viewHolder);
-
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }

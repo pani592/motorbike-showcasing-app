@@ -1,6 +1,7 @@
 package com.example.motorbikeapp;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MotorbikeProvider {
     static String[] models = {"Meteor 350", "CMX500 Rebel", "Vulcan S", "CMX1100 Rebel", "Scout 1200", "Softail Slim", "X-Diavel","R18", "Rocket 3", "Vintage Dark Horse",
@@ -20,12 +21,43 @@ public class MotorbikeProvider {
             "Sportbike", "Sportbike", "Sportbike", "Sportbike", "Sportbike","Sportbike", "Sportbike", "Sportbike","Sportbike","Sportbike"};
 
     //image path of bike images in the drawable folder
-    static int[] imageaddrs = {R.drawable.mc001a, R.drawable.mc002a,R.drawable.mc003a,R.drawable.mc004a,R.drawable.mc005a,R.drawable.mc006a,
-            R.drawable.mc007a,R.drawable.mc008a,R.drawable.mc009a, R.drawable.mc010a,
-            R.drawable.mr001a, R.drawable.mr002a, R.drawable.mr003a, R.drawable.mr004a, R.drawable.mr005a,
-            R.drawable.mr006a, R.drawable.mr007a, R.drawable.mr008a, R.drawable.mr009a, R.drawable.mr010a,
-            R.drawable.ms001a, R.drawable.ms002a, R.drawable.ms003a, R.drawable.ms004a, R.drawable.ms005a,
-            R.drawable.ms006a, R.drawable.ms007a, R.drawable.ms008a, R.drawable.ms009a, R.drawable.ms010a};
+//    static int[] imageaddrs = {R.drawable.mc001a, R.drawable.mc002a,R.drawable.mc003a,R.drawable.mc004a,R.drawable.mc005a,R.drawable.mc006a,
+//            R.drawable.mc007a,R.drawable.mc008a,R.drawable.mc009a, R.drawable.mc010a,
+//            R.drawable.mr001a, R.drawable.mr002a, R.drawable.mr003a, R.drawable.mr004a, R.drawable.mr005a,
+//            R.drawable.mr006a, R.drawable.mr007a, R.drawable.mr008a, R.drawable.mr009a, R.drawable.mr010a,
+//            R.drawable.ms001a, R.drawable.ms002a, R.drawable.ms003a, R.drawable.ms004a, R.drawable.ms005a,
+//            R.drawable.ms006a, R.drawable.ms007a, R.drawable.ms008a, R.drawable.ms009a, R.drawable.ms010a};
+
+    static int[] imageaddrs = {R.drawable.mc001a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mc002a, R.drawable.mc002b, R.drawable.mc002c,R.drawable.mc002d,
+            R.drawable.mc003a, R.drawable.mc003b, R.drawable.mc003c,R.drawable.mc003d,
+            R.drawable.mc004a,R.drawable.mc004b, R.drawable.mc004c,R.drawable.mc004d,
+            R.drawable.mc005a,R.drawable.mc005b, R.drawable.mc005c,R.drawable.mc005d,
+            R.drawable.mc006a,R.drawable.mc006b, R.drawable.mc006c,R.drawable.mc006d,
+            R.drawable.mc007a,R.drawable.mc007b, R.drawable.mc007c,R.drawable.mc007d,
+            R.drawable.mc008a,R.drawable.mc008b, R.drawable.mc008c,R.drawable.mc008d,
+            R.drawable.mc009a, R.drawable.mc009b, R.drawable.mc009c,R.drawable.mc009d,
+            R.drawable.mc010a,R.drawable.mc010b, R.drawable.mc010c,R.drawable.mc010d,
+            R.drawable.mr001a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr002a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr003a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr004a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr005a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr006a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr007a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr008a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr009a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.mr010a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms001a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms002a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms003a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms004a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms005a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms006a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms007a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms008a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms009a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
+            R.drawable.ms010a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d};
 
     public static ArrayList<Motorbike> generateData(String filter) {
         ArrayList<Motorbike> bikes = new ArrayList<Motorbike>();
@@ -35,23 +67,37 @@ public class MotorbikeProvider {
             String company = companies[i];
             double price = prices[i];
             String category =  categories[i];
-            int imageaddr = imageaddrs[i];
+            int imageaddr = imageaddrs[i*4];
 
             if (filter != ""){
                 String s = filter.toLowerCase();
 
                 if (category.toLowerCase().contains(s) || model.toLowerCase().contains(s) || company.toLowerCase().contains(s)) {
-                    Motorbike aBike = new Motorbike(model, price, company, category, imageaddr);
+                    Motorbike aBike = new Motorbike(model, price, company, category, imageaddr, i);
                     bikes.add(aBike);
                 }
 
             } else {
-                Motorbike aBike = new Motorbike(model, price, company, category, imageaddr);
+                Motorbike aBike = new Motorbike(model, price, company, category, imageaddr, i);
                 bikes.add(aBike);
             }
 
         }
         return bikes;
+    }
+
+    public static List<ImageSlider> generateImages(int positionID) {
+        List<ImageSlider> sliderItems = new ArrayList<>();
+
+        for (int i = 0; i<4; i++){
+            sliderItems.add(new ImageSlider(imageaddrs[4*positionID + i]));
+        }
+
+//        sliderItems.add(new ImageSlider(R.drawable.mc001b));
+//        sliderItems.add(new ImageSlider(R.drawable.mc001c));
+//        sliderItems.add(new ImageSlider(R.drawable.mc001d));
+
+        return sliderItems;
     }
 }
 

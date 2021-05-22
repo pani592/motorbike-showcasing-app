@@ -51,8 +51,7 @@ public class ListActivity extends AppCompatActivity {
                 TopMotorbikeList.getInstance().updateTimesViewed(bikeAdapter.getItem(position).getModel());
 
                 // Launch the detail view passing a bike as an extra
-                Intent intent = new Intent(ListActivity.this,
-                        DetailActivity.class);
+                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
                 intent.putExtra(BIKE_DETAIL_KEY, bikeAdapter.getItem(position));
                 startActivity(intent);
             }

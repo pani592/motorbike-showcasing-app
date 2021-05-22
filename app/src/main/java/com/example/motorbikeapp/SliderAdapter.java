@@ -1,6 +1,5 @@
 package com.example.motorbikeapp;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +14,10 @@ import java.util.List;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
 
-    private List<MotorbikeImageSlider> sliderItems;
+    private List<ImageSlider> sliderItems;
     private ViewPager2 viewPager2;
 
-    SliderAdapter(List<MotorbikeImageSlider> sliderItems, ViewPager2 viewPager2) {
+    SliderAdapter(List<ImageSlider> sliderItems, ViewPager2 viewPager2) {
         this.sliderItems = sliderItems;
         this.viewPager2 = viewPager2;
     }
@@ -47,7 +46,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
             imageView = itemView.findViewById(R.id.imageSlide);
         }
 
-        void setImage(MotorbikeImageSlider sliderItem) {
+        void setImage(ImageSlider sliderItem) {
             imageView.setImageResource(sliderItem.getImageAddr());
         }
     }

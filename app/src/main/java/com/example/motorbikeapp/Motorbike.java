@@ -10,17 +10,21 @@ public class Motorbike implements Serializable {
     private String category;
     private int ImageAddr;
     private int timesViewed;
+    private int bikePositionID;
 
-    public Motorbike(String model, double price, String company, String category, int ImageAddr){
+    public Motorbike(String model, double price, String company, String category, int ImageAddr, int bikePositionID){
         this.model = model;
         this.price = price;
         this.company = company;
         this.category = category;
+        this.ImageAddr = ImageAddr;
 
         Random rng = new Random();
         this.timesViewed = rng.nextInt(10);
 
-        this.ImageAddr = ImageAddr;
+        this.bikePositionID = bikePositionID;
+
+
     }
 
     public String getModel(){ return model; }
@@ -33,4 +37,6 @@ public class Motorbike implements Serializable {
     public int getImage(){ return ImageAddr; }
 
     public void incTimesViewed() { timesViewed++; }
+
+    public int getBikePositionID() { return bikePositionID; }
 }

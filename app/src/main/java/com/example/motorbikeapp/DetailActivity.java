@@ -51,11 +51,8 @@ public class DetailActivity extends AppCompatActivity {
         int resID = bike.getImage();
         ivMotorbikeImage.setImageResource(resID);
 
-        List<MotorbikeImageSlider> sliderItems = new ArrayList<>();  // testing here - may need to move elsewhere
-        sliderItems.add(new MotorbikeImageSlider(R.drawable.mc001b));
-        sliderItems.add(new MotorbikeImageSlider(R.drawable.mc001c));
-        sliderItems.add(new MotorbikeImageSlider(R.drawable.mc001d));
-
+        int positionID = bike.getBikePositionID();
+        List<ImageSlider> sliderItems = MotorbikeProvider.generateImages(positionID);
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
     }
 }
