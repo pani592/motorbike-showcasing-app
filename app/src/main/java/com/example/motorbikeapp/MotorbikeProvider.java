@@ -20,14 +20,6 @@ public class MotorbikeProvider {
             "Roadster", "Roadster", "Roadster", "Roadster", "Roadster", "Roadster", "Roadster", "Roadster", "Roadster", "Roadster",
             "Sportbike", "Sportbike", "Sportbike", "Sportbike", "Sportbike","Sportbike", "Sportbike", "Sportbike","Sportbike","Sportbike"};
 
-    //image path of bike images in the drawable folder
-//    static int[] imageaddrs = {R.drawable.mc001a, R.drawable.mc002a,R.drawable.mc003a,R.drawable.mc004a,R.drawable.mc005a,R.drawable.mc006a,
-//            R.drawable.mc007a,R.drawable.mc008a,R.drawable.mc009a, R.drawable.mc010a,
-//            R.drawable.mr001a, R.drawable.mr002a, R.drawable.mr003a, R.drawable.mr004a, R.drawable.mr005a,
-//            R.drawable.mr006a, R.drawable.mr007a, R.drawable.mr008a, R.drawable.mr009a, R.drawable.mr010a,
-//            R.drawable.ms001a, R.drawable.ms002a, R.drawable.ms003a, R.drawable.ms004a, R.drawable.ms005a,
-//            R.drawable.ms006a, R.drawable.ms007a, R.drawable.ms008a, R.drawable.ms009a, R.drawable.ms010a};
-
     static int[] imageaddrs = {R.drawable.mc001a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
             R.drawable.mc002a, R.drawable.mc002b, R.drawable.mc002c,R.drawable.mc002d,
             R.drawable.mc003a, R.drawable.mc003b, R.drawable.mc003c,R.drawable.mc003d,
@@ -48,16 +40,16 @@ public class MotorbikeProvider {
             R.drawable.mr008a,R.drawable.mr008b, R.drawable.mr008c,R.drawable.mr008d,
             R.drawable.mr009a, R.drawable.mr009b, R.drawable.mr009c,R.drawable.mr009d,
             R.drawable.mr010a,R.drawable.mr010b, R.drawable.mr010c,R.drawable.mr010d,
-            R.drawable.ms001a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms002a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms003a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms004a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms005a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms006a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms007a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms008a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms009a,R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d,
-            R.drawable.ms010a, R.drawable.mc001b, R.drawable.mc001c,R.drawable.mc001d};
+            R.drawable.ms001a, R.drawable.ms001b, R.drawable.ms001c,R.drawable.ms001d,
+            R.drawable.ms002a, R.drawable.ms002b, R.drawable.ms002c,R.drawable.ms002d,
+            R.drawable.ms003a, R.drawable.ms003b, R.drawable.ms003c,R.drawable.ms003d,
+            R.drawable.ms004a,R.drawable.ms004b, R.drawable.ms004c,R.drawable.ms004d,
+            R.drawable.ms005a,R.drawable.ms005b, R.drawable.ms005c,R.drawable.ms005d,
+            R.drawable.ms006a,R.drawable.ms006b, R.drawable.ms006c,R.drawable.ms006d,
+            R.drawable.ms007a,R.drawable.ms007b, R.drawable.ms007c,R.drawable.ms007d,
+            R.drawable.ms008a,R.drawable.ms008b, R.drawable.ms008c,R.drawable.ms008d,
+            R.drawable.ms009a, R.drawable.ms009b, R.drawable.ms009c,R.drawable.ms009d,
+            R.drawable.ms010a,R.drawable.ms010b, R.drawable.ms010c,R.drawable.ms010d};
 
     public static ArrayList<Motorbike> generateData(String filter) {
         ArrayList<Motorbike> bikes = new ArrayList<Motorbike>();
@@ -88,15 +80,9 @@ public class MotorbikeProvider {
 
     public static List<ImageSlider> generateImages(int positionID) {
         List<ImageSlider> sliderItems = new ArrayList<>();
-
         for (int i = 0; i<4; i++){
             sliderItems.add(new ImageSlider(imageaddrs[4*positionID + i]));
         }
-
-//        sliderItems.add(new ImageSlider(R.drawable.mc001b));
-//        sliderItems.add(new ImageSlider(R.drawable.mc001c));
-//        sliderItems.add(new ImageSlider(R.drawable.mc001d));
-
         return sliderItems;
     }
 }
