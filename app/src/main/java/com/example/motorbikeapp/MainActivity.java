@@ -13,17 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-
-public class MainActivity extends AppCompatActivity implements MotorbikeRecyclerAdapter.OnItemListener {
+public class MainActivity extends AppCompatActivity implements RecyclerAdapter.OnItemListener {
     public static final String BIKE_DETAIL_KEY = "bike";
 
     private RecyclerView rvTopPicks;
     private RecyclerView.LayoutManager topPicksLayoutManager;
-    private MotorbikeRecyclerAdapter topPicksAdapter;
+    private RecyclerAdapter topPicksAdapter;
     private LinearLayoutManager topPicksHorizontalLayout;
 
     @Override
@@ -139,13 +134,13 @@ public class MainActivity extends AppCompatActivity implements MotorbikeRecycler
         TopMotorbikeList.getInstance().sortBikeList();
 
         // Load the bikes into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList(), this);
+        topPicksAdapter = new RecyclerAdapter(TopMotorbikeList.getInstance().getBikeList(), this);
         rvTopPicks.setAdapter(topPicksAdapter);
     }
 
     private void updateTopPicks() {
         // Load the bikes from TopMotorbikeList into the adapter
-        topPicksAdapter = new MotorbikeRecyclerAdapter(TopMotorbikeList.getInstance().getBikeList(), this);
+        topPicksAdapter = new RecyclerAdapter(TopMotorbikeList.getInstance().getBikeList(), this);
         rvTopPicks.setAdapter(topPicksAdapter);
     }
 

@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">Motorbike App</string>
+
+    <string name = "Meteor350">
+        This brand-new-for-2021 addition from now Indian-owned Royal Enfield looks set to be one of the cruiser bargains of the year – and we say ‘set’ to be because, as we write, we’ve not actually ridden it yet, with the Meteor 350 due to be released in Spring 2021. From what we do know, however, it looks to be temptingly different. It’s aimed at novices and commuters, is powered by a fairly soft, 350cc single cylinder engine that’s A2 licence compliant, has a laid back, cruiser-style twin shock chassis and will come with a three-year warranty along with three years roadside assistance as standard. Most impressive of all, though, is the price.
+    </string>
+    <string name = "CMX500Rebel">
+        Honda’s cruiser version of its A2-licence-friendly, budget-price, 500cc twin family (the others being the CB500F roadster, CBR500F sportster and CB500X adventure bike) is the equally novice-friendly CMX500. With its similar 471cc parallel twin detuned to an even more flexible and idiot-proof 45bhp plus new frame (with more rake and an even lower seat) it’s even less intimidating than its siblings yet is surprisingly eager and good fun to zip around on, too. The looks may not be to everyone’s taste (Honda never has been very good at ‘doing a Harley’) but it’s customizable, good value, is Euro5 compliant and ticks a lot of boxes.
+    </string>
+    <string name= "VulcanS">
+        Often cruelly overlooked middleweight is based on the ER-6n (now Z650) parallel twin engine and is a temptingly affordable, easy to get on with all-rounder. The seat’s a usefully low 705mm; the engine produces a more than adequate 60bhp and it’s also light, manageable, comfortable and reliable. The Vulcan make lack the authenticity of a Triumph or Harley and the class and grunt of bigger machines but it more than makes up for it with friendly accessibility and great value.
+    </string>
+    <string name = "CMX1100Rebel">
+        Another newcomer for 2021 is Honda’s all-new ‘bigger brother’ to its popular CMX500 Rebel – the CMX1100. Inspired by and styled very much like the junior, novice version, the bigger Rebel is also powered by a parallel twin cylinder engine, but this time a detuned but still 86bhp version of the unit from the Africa Twin adventure bike. Elsewhere it also follows the design cues of the 500 but scaled and specced up accordingly. The brakes are bigger, the suspension larger, the LED headlight and clocks more sophisticated. There’s also four switchable riding modes and the option of Honda’s slick, semi-automatic ‘DCT’ gearbox (for £900 more) and yet the whole bike still has a reassuring low saddle, should be a doddle to ride and is temptingly affordable, too.
+    </string>
+    <string name = "Scout1200">
+        When the (mostly) dormant historic US Indian brand was snapped up by the giant, Victory-owning Polaris Industries in 2011 no-one predicted the sensation that would soon follow. The first bike, the big, V-twin engine Chief came within two years and justifiably rattled American rival Harley. But Indian’s more entry-level, 1200cc Sportster rival, the Scout, was arguably even more impressive still. Powered by an all-new, 100bhp, liquid-cooled V-twin, with neat Art Deco styling and low, easy and engaging handling, the Scout can run rings around the Harley and in some ways is closer to a Ducati Monster than the US cruiser. On the downside, though, the Indian is at a significantly higher price point, too. But as an option between, say, the now deleted 883 Sportster and a genuine Big Twin, the Scout has lots of authentic American appeal. (A 999cc/78bhp version, the Scout Sixty, introduced in 2016, is instead a closer Sportster rival at £10,499, while there’s now also a Bobber version, too.)
+    </string>
+    <string name = "SoftailSlim">
+        The big twin American has long been considered the most aspirational if not definitive V-twin cruiser in all its various forms – after all, Harley effectively invented the factory cruiser with its first Super Glide back in 1971. For many years, however, they’ve also been rightfully criticized for their old tech and limited performance. Improving in recent years, H-D’s cruisers made a quantum leap up for 2018 with its all-new ‘Softail’ family which replaced all the old Softails and Dynas with a new, lightweight, more rigid, monoshock chassis, uprated, 86bhp Milwaukee Eight engines, revised brakes, new styling and lots of modern detail touches such as LED lighting. Which grabs your fancy from the nine-strong family, ranging from the Low Rider to the monster Fat Boy, is down to personal taste, but the Softail Slim possibly satisfies most for its blend of ‘40s styling, punchy performance, distance practicality and impressive handling while the pared-down, basic Softail Standard, introduced in 2020, is now its most affordable big cruiser, at just £12,995.
+    </string>
+    <string name = "XDiavel">
+        Possibly more of a hot rod, if the truth be told, than a classic cruiser, the Diavel, simply rewrote the performance cruiser rule book when first launched in 2011 thanks to its mix of 160bhp Testastretta superbike power, cutting edge electronics and cycle parts and class-defying handling – but then, being a Ducati, perhaps we shouldn’t have expected anything less. The longer, lower, more feet-forward X-Diavel from 2016 took things even more cruiser-ey and is a fabulous machine, especially in higher spec ‘S’ form. It’s not for novices, is not cheap and is certainly not for traditional cruiser types, but the X-Diavel is a phenomenal machine and a true cat among the conventional cruiser pigeon.
+    </string>
+    <string name = "R18">
+        It’s probably fair to say that BMW didn’t quite get it right with its last attempt at a cruiser, the awkwardly-styled R1200C of 1998 through to 2003 but the Bavarian marque has more than made amends with this all-new offering, launched in 2020. Aimed very much at American Harley buyers and drawing inspiration from both US cruiser style and BMW’s heritage, the R18 is all new from the ground up. At its heart is a massive, all-new, air-cooled classic boxer twin that pushes out a Harley-esque 90bhp along with plenty of torque. There’s an exposed, old-style shaft drive, three riding modes, fabulous black and chrome styling inspired by BMW’s R5 of 1936 and the amount of glorious detailing and quality touches you’d expect of a bike at this price. A genuine Harley rival but with the classy touches, quality (and price) you’d expect of a BMW. Oh, and if that’s not enough, there’s also a screen and panniered ‘bagger’ Classic version available, for £20,980.
+    </string>
+    <string name = "Rocket3">
+        Another all-new monster cruiser introduced in 2020 – although Triumph itself calls its new Rocket3 a ‘muscle roadster’. Either way, the Rocket3 simply can’t be ignored. An all-new successor to Triumph’s original 2300cc triple of 2004, the new version has an all-new, 2458cc engine producing a massive 1665bhp plus a Tarmac-shredding 163ft-lb of torque, monster hot rod performance unequalled by any other machine. But arguably even more impressive are the new Rocket’s manageable handling and practicality, thanks to a superb chassis, electronic rider aids, switchable riding modes, top notch brakes and more, which all combine to keep that size and performance under control. Two versions are available, the standard ‘R’ and the more tourer GT with small screen, pillion backrest and more, but neither are remotely basic. The Rocket3 may be more monster hot rod than laid back cruiser, but if you want a bike of this style that has the most, you can’t ignore it.
+    </string>
+    <string name = "VintageDarkHorse">
+        Reborn Indian’s big cruiser V-twins are possibly the grandest and most glorious traditional cruisers of all – and certainly among the most expensive. Ranging from the basic cruiser Vintage to the ‘bagger’ Chieftain and Springfield, to the ‘full-dresser’ Roadmaster, and with prices ranging from 18 to £30K, all tick virtually all the cruiser boxes. Engines are the same glorious ‘Thunderstroke’ 1811cc V-twin (although Indian also recently introduced its new water-cooled Challenger); their chassis share decent cycle parts (enough to inspire a raft of Harley updates since) and style, detailing, comfort and quality are all first rate. The Vintage has replaced the Chief as Indian’s basic cruisers and, with its classic Indian flared fender and with the Dark Horse version’s pure, naked stance, it’s Indian’s purest cruiser – American V-twin cruisers don’t get bolder, better or classier.
+    </string>
+
+<!--    <string-array name="motorbike_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>-->
 </resources>

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,11 +20,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
+    private Motorbike bike;
+
     private ImageView ivMotorbikeImage;
     private TextView tvModel;
     private TextView tvCompany;
     private TextView tvPrice;
     private ViewPager2 viewPager2;
+    private TextView tvDescription;
+    private Button btShowMore;
+
     private Handler slideHandler = new Handler(Looper.myLooper());
 
     @Override
@@ -34,11 +40,13 @@ public class DetailActivity extends AppCompatActivity {
         tvModel = (TextView) findViewById(R.id.tvModel);
         tvCompany = (TextView) findViewById(R.id.tvCompany);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
-        viewPager2 = findViewById(R.id.viewPagerImageSlider);
+        viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
+        tvDescription = (TextView) findViewById(R.id.tvDescription);
+        btShowMore = (Button) findViewById(R.id.btShowMore);
 
         // Get the bike that was passed from the Intent of the ListActivity
         Intent thisIntent = getIntent();
-        Motorbike bike = (Motorbike) thisIntent.getSerializableExtra(ListActivity.BIKE_DETAIL_KEY);
+        this.bike = (Motorbike) thisIntent.getSerializableExtra(ListActivity.BIKE_DETAIL_KEY);
 
         // Load the data from the bike into the DetailView
         loadBike(bike);
@@ -86,6 +94,9 @@ public class DetailActivity extends AppCompatActivity {
                 slideHandler.postDelayed(slideRunnable, 3000); // slide duration 3 seconds
             }
         });
+
+        tvDescription.setText(getBikeDescription(bike, false));
+        btShowMore.setOnClickListener(showMoreButtonHandler);
     }
 
     private Runnable slideRunnable = new Runnable(){
@@ -105,5 +116,39 @@ public class DetailActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         slideHandler.postDelayed(slideRunnable, 3000);
+    }
+
+    View.OnClickListener showMoreButtonHandler = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            // Changing text based on click
+            if (btShowMore.getText().equals("Show more")) {
+
+                btShowMore.setText("Show less");
+                tvDescription.setText(getBikeDescription(bike, true));
+            } else {
+
+                btShowMore.setText("Show more");
+                tvDescription.setText(getBikeDescription(bike, false));
+            }
+        }
+    };
+
+    private String getBikeDescription(Motorbike bike, boolean fullLength) {
+
+        String parsedModelName = bike.getModel();
+        parsedModelName = parsedModelName.replaceAll(" ", ""); // Replace spaces with nothing
+        parsedModelName = parsedModelName.replaceAll("-", ""); // Replace hyphens with nothing
+
+        int resID = getResources().getIdentifier(parsedModelName, "string", getApplicationContext().getPackageName());
+        String motorbikeDescription = (String) getString(resID);
+
+        // If the full length description is not wanted, only slice if length is >200
+        if (!fullLength && motorbikeDescription.length() > 200) {
+            motorbikeDescription = motorbikeDescription.substring(0, 199) + "...";
+        }
+
+        return motorbikeDescription;
     }
 }

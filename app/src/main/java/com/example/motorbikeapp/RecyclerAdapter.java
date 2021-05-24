@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MotorbikeRecyclerAdapter extends RecyclerView.Adapter<MotorbikeRecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private ArrayList<Motorbike> localDataSet;
     private OnItemListener localOnItemListener;
 
     // Initialize the dataset and OnItemListener of the adapter
-    public MotorbikeRecyclerAdapter(ArrayList<Motorbike> dataSet, OnItemListener onItemListener) {
+    public RecyclerAdapter(ArrayList<Motorbike> dataSet, OnItemListener onItemListener) {
         localDataSet = dataSet;
         this.localOnItemListener = onItemListener;
     }
