@@ -12,7 +12,7 @@ public class MotorbikeProvider {
             5699,7699,8000,8200,9799,10649,10800,11395,12295,12795,
             4599,5299,6899,10150,15590,15799,16999,17399,19999,24995};
 
-    static String[] companies = {"Royal Enfield", "Honda", "Kawasaki", "Honda", "Indian", "Harley-Davidson", "Ducati", "BMW", "Triumph", "Indian",
+    static String[] companies = {"Royal Enfield", "Honda", "Kawasaki", "Honda", "Indian", "Harley Davidson", "Ducati", "BMW", "Triumph", "Indian",
             "Royal Enfield", "Yamaha", "Moto Guzzi", "Triumph", "Honda", "Kawasaki" , "Triumph", "BMW", "Indian", "Ducati",
             "Aprilia", "KTM", "Kawasaki", "Aprilia", "BMW", "Kawasaki", "Suzuki", "Yamaha", "Honda", "Ducati"};
 

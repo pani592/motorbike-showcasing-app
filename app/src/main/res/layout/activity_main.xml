@@ -15,27 +15,47 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
                 android:padding="4dp"
-                android:background="#2196f3">
+                android:layout_margin="8dp">
+
+                <TextView
+                    style="@style/CategoryTextStyle"
+                    android:layout_margin="4dp"
+                    android:textColor="@color/white"
+                    android:id="@+id/topPicksText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Most Viewed" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvTopPicks"
+                    android:layout_below="@+id/topPicksText"
                     android:scrollbars="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
                 android:orientation="vertical">
+
+                <TextView
+                    style="@style/CategoryTextStyle"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvCruisersCategory"
@@ -47,10 +67,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
-                            android:layout_margin="8dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="16dp"
+                            android:layout_marginStart="16dp"
                             android:src="@drawable/mcicon" />
                         <TextView
                             style="@style/CategoryTextStyle"
@@ -72,10 +92,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
-                            android:layout_margin="8dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/mricon" />
                         <TextView
                             style="@style/CategoryTextStyle"
@@ -97,10 +116,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
-                            android:layout_margin="8dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/msicon" />
                         <TextView
                             style="@style/CategoryTextStyle"
