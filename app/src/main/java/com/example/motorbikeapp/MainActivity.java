@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
         CardView sportbikesCategory = (CardView) findViewById(R.id.cvSportbikesCategory);
         sportbikesCategory.setOnClickListener(sportbikesCategoryHandler);
+
+        CardView nakedCategory = (CardView) findViewById(R.id.cvNakedCategory);
+        nakedCategory.setOnClickListener(nakedsCategoryHandler);
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // turn off night mode
     }
 
@@ -121,6 +125,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             sportbikesListActivity.putExtra("filter", "Sportbike");
 
             startActivity(sportbikesListActivity);
+        }
+    };
+
+    View.OnClickListener nakedsCategoryHandler = new View.OnClickListener() {
+        public void onClick(View view) {
+
+            Intent nakedListActivity = new Intent(getBaseContext(), ListActivity.class);
+            nakedListActivity.putExtra("filter", "Naked");
+
+            startActivity(nakedListActivity);
         }
     };
 

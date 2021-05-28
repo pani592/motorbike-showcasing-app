@@ -23,8 +23,6 @@ public class Motorbike implements Serializable {
         this.timesViewed = rng.nextInt(10);
 
         this.bikePositionID = bikePositionID;
-
-
     }
 
     public String getModel(){ return model; }
