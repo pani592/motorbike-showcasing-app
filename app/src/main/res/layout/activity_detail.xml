@@ -71,12 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:background="@drawable/text_gradient"
-
                 android:layout_marginTop="22dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-
-                android:textSize="16sp"
+                android:padding="16dp"
+                android:textSize="18sp"
+                android:justificationMode="inter_word"
                 android:textColor="@color/black"
                 android:text="Description" />
 
@@ -85,9 +83,7 @@
                 android:id="@+id/btShowMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:minHeight="0dp"
-
                 android:background="@android:color/transparent"
                 android:textAllCaps="true"
                 android:text="Show more"/>
