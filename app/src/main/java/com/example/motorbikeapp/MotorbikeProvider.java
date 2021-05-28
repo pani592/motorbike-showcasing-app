@@ -72,16 +72,16 @@ public class MotorbikeProvider {
             R.drawable.md009a, R.drawable.md009b, R.drawable.md009c,R.drawable.md009d,
             R.drawable.md010a,R.drawable.md010b, R.drawable.md010c,R.drawable.md010d,
 
-            R.drawable.ma001a, R.drawable.md001b, R.drawable.md001c,R.drawable.md001d, // will update images later.
-            R.drawable.ma002a, R.drawable.md002b, R.drawable.md002c,R.drawable.md002d,
-            R.drawable.ma003a, R.drawable.md003b, R.drawable.md003c,R.drawable.md003d,
-            R.drawable.ma004a,R.drawable.md004b, R.drawable.md004c,R.drawable.md004d,
-            R.drawable.ma005a,R.drawable.md005b, R.drawable.md005c,R.drawable.md005d,
-            R.drawable.ma006a,R.drawable.md006b, R.drawable.md006c,R.drawable.md006d,
-            R.drawable.ma007a,R.drawable.md007b, R.drawable.md007c,R.drawable.md007d,
-            R.drawable.ma008a,R.drawable.md008b, R.drawable.md008c,R.drawable.md008d,
-            R.drawable.ma009a, R.drawable.md009b, R.drawable.md009c,R.drawable.md009d,
-            R.drawable.ma010a,R.drawable.md010b, R.drawable.md010c,R.drawable.md010d};
+            R.drawable.ma001a, R.drawable.ma001b, R.drawable.ma001c,R.drawable.ma001d,
+            R.drawable.ma002a, R.drawable.ma002b, R.drawable.ma002c,R.drawable.ma002d,
+            R.drawable.ma003a, R.drawable.ma003b, R.drawable.ma003c,R.drawable.ma003d,
+            R.drawable.ma004a,R.drawable.ma004b, R.drawable.ma004c,R.drawable.ma004d,
+            R.drawable.ma005a,R.drawable.ma005b, R.drawable.ma005c,R.drawable.ma005d,
+            R.drawable.ma006a,R.drawable.ma006b, R.drawable.ma006c,R.drawable.ma006d,
+            R.drawable.ma007a,R.drawable.ma007b, R.drawable.ma007c,R.drawable.ma007d,
+            R.drawable.ma008a,R.drawable.ma008b, R.drawable.ma008c,R.drawable.ma008d,
+            R.drawable.ma009a, R.drawable.ma009b, R.drawable.ma009c,R.drawable.ma009d,
+            R.drawable.ma010a,R.drawable.ma010b, R.drawable.ma010c,R.drawable.ma010d};
 
     public static ArrayList<Motorbike> generateData(String filter) {
         ArrayList<Motorbike> bikes = new ArrayList<Motorbike>();
