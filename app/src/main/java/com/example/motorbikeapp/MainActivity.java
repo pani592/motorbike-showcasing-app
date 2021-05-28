@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
         CardView nakedCategory = (CardView) findViewById(R.id.cvNakedCategory);
         nakedCategory.setOnClickListener(nakedsCategoryHandler);
 
+        CardView adventureCategory = (CardView) findViewById(R.id.cvAdventureCategory);
+        adventureCategory.setOnClickListener(adventuresCategoryHandler);
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // turn off night mode
     }
 
@@ -100,41 +103,41 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
     View.OnClickListener cruisersCategoryHandler = new View.OnClickListener() {
         public void onClick(View view) {
-
             Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
             cruisersListActivity.putExtra("filter", "Cruiser");
-
             startActivity(cruisersListActivity);
         }
     };
 
     View.OnClickListener roadstersCategoryHandler = new View.OnClickListener() {
         public void onClick(View view) {
-
             Intent roadstersListActivity = new Intent(getBaseContext(), ListActivity.class);
             roadstersListActivity.putExtra("filter", "Roadster");
-
             startActivity(roadstersListActivity);
         }
     };
 
     View.OnClickListener sportbikesCategoryHandler = new View.OnClickListener() {
         public void onClick(View view) {
-
             Intent sportbikesListActivity = new Intent(getBaseContext(), ListActivity.class);
             sportbikesListActivity.putExtra("filter", "Sportbike");
-
             startActivity(sportbikesListActivity);
         }
     };
 
     View.OnClickListener nakedsCategoryHandler = new View.OnClickListener() {
         public void onClick(View view) {
-
             Intent nakedListActivity = new Intent(getBaseContext(), ListActivity.class);
             nakedListActivity.putExtra("filter", "Naked");
-
             startActivity(nakedListActivity);
+        }
+    };
+
+    View.OnClickListener adventuresCategoryHandler = new View.OnClickListener() {
+        public void onClick(View view) {
+            Intent adventureListActivity = new Intent(getBaseContext(), ListActivity.class);
+            adventureListActivity.putExtra("filter", "Adventure");
+            startActivity(adventureListActivity);
         }
     };
 
