@@ -53,6 +53,16 @@ public class DetailActivity extends AppCompatActivity {
 
         // Load the data from the bike into the DetailView
         loadBike(bike);
+
+        // Create the mediator that allows the TabLayout index and ViewPager2 index to sync
+        TabLayoutMediator tabLayoutMediator =
+                new TabLayoutMediator(tabLayout, viewPager2, true,
+                        new TabLayoutMediator.TabConfigurationStrategy() {
+                            @Override public void onConfigureTab(
+                                    @NonNull TabLayout.Tab tab, int position) { }
+                        }
+                );
+        tabLayoutMediator.attach();
     }
 
     private void loadBike(Motorbike bike) {
@@ -74,7 +84,7 @@ public class DetailActivity extends AppCompatActivity {
 
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
-        viewPager2.setOffscreenPageLimit(3);
+        viewPager2.setOffscreenPageLimit(sliderItems.size() - 1);
         viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
@@ -88,15 +98,6 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        TabLayoutMediator tabLayoutMediator =
-                new TabLayoutMediator(tabLayout, viewPager2, true,
-                        new TabLayoutMediator.TabConfigurationStrategy() {
-                            @Override public void onConfigureTab(
-                                    @NonNull TabLayout.Tab tab, int position) { }
-                        }
-                );
-        tabLayoutMediator.attach();
-
         tvDescription.setText(getBikeDescription(bike, false));
         btShowMore.setOnClickListener(showMoreButtonHandler);
     }
@@ -104,7 +105,11 @@ public class DetailActivity extends AppCompatActivity {
     private Runnable slideRunnable = new Runnable(){
         @Override
         public void run() {
-            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+            if (viewPager2.getCurrentItem() < (viewPager2.getAdapter().getItemCount() - 1)) {
+                viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+            } else {
+                viewPager2.setCurrentItem(0);
+            }
         }
     };
 
