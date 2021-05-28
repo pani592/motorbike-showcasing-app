@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -26,6 +27,7 @@ import java.util.List;
 public class DetailActivity extends AppCompatActivity {
     private Motorbike bike;
 
+    private ScrollView svDetailActivity;
     private TextView tvModel;
     private TextView tvCompany;
     private TextView tvPrice;
@@ -43,6 +45,7 @@ public class DetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        svDetailActivity = (ScrollView) findViewById(R.id.svDetailActivity);
         tvModel = (TextView) findViewById(R.id.tvModel);
         tvCompany = (TextView) findViewById(R.id.tvCompany);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
@@ -150,6 +153,14 @@ public class DetailActivity extends AppCompatActivity {
                 tvDescription.setBackgroundResource(0);
                 tvDescription.setBackgroundColor(-1);
                 tvDescription.setText(getBikeDescription(bike, true));
+
+                // When the show more button is clicked, scroll to the bottom of the screen
+                svDetailActivity.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        svDetailActivity.smoothScrollTo(0, svDetailActivity.getHeight());
+                    }
+                });
             } else {
 
                 btShowMore.setText("Show more");

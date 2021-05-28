@@ -9,6 +9,7 @@
     style="@style/backgroundStyle">
 
     <ScrollView
+        android:id="@+id/svDetailActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
