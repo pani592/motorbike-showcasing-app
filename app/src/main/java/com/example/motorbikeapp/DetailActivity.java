@@ -22,7 +22,6 @@ import java.util.List;
 public class DetailActivity extends AppCompatActivity {
     private Motorbike bike;
 
-    private ImageView ivMotorbikeImage;
     private TextView tvModel;
     private TextView tvCompany;
     private TextView tvPrice;
@@ -36,7 +35,6 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        ivMotorbikeImage = (ImageView) findViewById(R.id.ivMotorbikeImage);
         tvModel = (TextView) findViewById(R.id.tvModel);
         tvCompany = (TextView) findViewById(R.id.tvCompany);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
@@ -64,8 +62,6 @@ public class DetailActivity extends AppCompatActivity {
         truncatedPrice = truncatedPrice.substring(0, truncatedPrice.length() - 2);
 
         tvPrice.setText('$' + truncatedPrice);
-        int resID = bike.getImage();
-        ivMotorbikeImage.setImageResource(resID);
 
         int positionID = bike.getBikePositionID();
         List<ImageSlider> sliderItems = MotorbikeProvider.generateImages(positionID);
@@ -126,10 +122,13 @@ public class DetailActivity extends AppCompatActivity {
             if (btShowMore.getText().equals("Show more")) {
 
                 btShowMore.setText("Show less");
+                tvDescription.setBackgroundResource(0);
+                tvDescription.setBackgroundColor(-1);
                 tvDescription.setText(getBikeDescription(bike, true));
             } else {
 
                 btShowMore.setText("Show more");
+                tvDescription.setBackgroundResource(R.drawable.text_gradient);
                 tvDescription.setText(getBikeDescription(bike, false));
             }
         }
