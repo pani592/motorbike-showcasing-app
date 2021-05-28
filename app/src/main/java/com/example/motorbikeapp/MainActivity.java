@@ -12,10 +12,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity implements RecyclerAdapter.OnItemListener {
     public static final String BIKE_DETAIL_KEY = "bike";
 
+    private ScrollView svMainActivity;
     private RecyclerView rvTopPicks;
     private RecyclerView.LayoutManager topPicksLayoutManager;
     private RecyclerAdapter topPicksAdapter;
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
         // We then update the RecyclerView in MainActivity to show the new changes (if any)
         updateTopPicks();
+
+        // Return to the top of the MainActivity
+        svMainActivity.scrollTo(0,0);
     }
 
     @Override
@@ -39,8 +45,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
         setContentView(R.layout.activity_main);
         this.setTitle("Home Screen");
 
+        svMainActivity = (ScrollView) findViewById(R.id.svMainActivity);
+
         // Find the RecyclerView for our top picks and initialise it
-        rvTopPicks = findViewById(R.id.rvTopPicks);
+        rvTopPicks = (RecyclerView) findViewById(R.id.rvTopPicks);
         initialiseTopPicks();
 
         // Find Card Views on the home screen, connect them to their onClick handlers
@@ -75,8 +83,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
                 searchActivity.putExtra("filter", query);
                 startActivity(searchActivity);
 
-                // Set activity title to search query
-                //MainActivity.this.setTitle(query);
                 return true;
             }
 

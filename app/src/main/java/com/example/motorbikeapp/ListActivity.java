@@ -1,11 +1,13 @@
 package com.example.motorbikeapp;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -25,6 +27,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent thisIntent = getIntent();
         String filter = thisIntent.getStringExtra("filter");
         this.setTitle(filter);
@@ -39,6 +43,16 @@ public class ListActivity extends AppCompatActivity {
         LinearLayoutManager lm = new LinearLayoutManager(this);
 
         setupMotorbikeSelectedListener();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void setupMotorbikeSelectedListener() {
