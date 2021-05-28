@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView tvCompany;
     private TextView tvPrice;
     private ViewPager2 viewPager2;
+    private TabLayout tabLayout;
     private TextView tvDescription;
     private Button btShowMore;
 
@@ -39,6 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         tvCompany = (TextView) findViewById(R.id.tvCompany);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
         viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tvDescription = (TextView) findViewById(R.id.tvDescription);
         btShowMore = (Button) findViewById(R.id.btShowMore);
 
@@ -73,14 +78,6 @@ public class DetailActivity extends AppCompatActivity {
         viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1- Math.abs(position);
-                page.setScaleY(0.85f + r * 0.15f);
-            }
-        });
         viewPager2.setPageTransformer(compositePageTransformer);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -90,6 +87,15 @@ public class DetailActivity extends AppCompatActivity {
                 slideHandler.postDelayed(slideRunnable, 3000); // slide duration 3 seconds
             }
         });
+
+        TabLayoutMediator tabLayoutMediator =
+                new TabLayoutMediator(tabLayout, viewPager2, true,
+                        new TabLayoutMediator.TabConfigurationStrategy() {
+                            @Override public void onConfigureTab(
+                                    @NonNull TabLayout.Tab tab, int position) { }
+                        }
+                );
+        tabLayoutMediator.attach();
 
         tvDescription.setText(getBikeDescription(bike, false));
         btShowMore.setOnClickListener(showMoreButtonHandler);

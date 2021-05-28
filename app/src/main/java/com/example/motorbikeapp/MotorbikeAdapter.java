@@ -41,6 +41,7 @@ public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
             convertView.setTag(viewHolder);
             viewHolder.tvCompany = (TextView) convertView.findViewById(R.id.tvCompany);
             viewHolder.tvPrice = (TextView) convertView.findViewById(R.id.tvPrice);
+
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -50,9 +51,14 @@ public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
         viewHolder.tvModel.setText(bike.getModel());
         viewHolder.tvCompany.setText(bike.getCompany());
         viewHolder.tvCategory.setText(bike.getCategory());
-        viewHolder.tvPrice.setText('$' + (String.valueOf(bike.getPrice())));
+
+        String truncatedPrice = String.valueOf(bike.getPrice());
+        truncatedPrice = truncatedPrice.substring(0, truncatedPrice.length() - 2);
+        viewHolder.tvPrice.setText('$' + truncatedPrice);
+
         int resID = bike.getImage();
         viewHolder.ivMotorbikeImage.setImageResource(resID);
+
         return convertView;
     }
 }
