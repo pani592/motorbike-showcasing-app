@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
@@ -75,7 +77,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         Motorbike currentBike = localDataSet.get(position);
 
         // Replace the contents of the view with that element
-        viewHolder.getIvMotorbikeImage().setImageResource(currentBike.getImage());
+        setIVMotorbikeImage(viewHolder, currentBike.getImage());
 
         if (currentBike.getModel().length() > 10) {
             String truncatedModel = currentBike.getModel().substring(0, 10) + "...";
@@ -103,5 +105,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public interface OnItemListener {
 
         void onItemClick(int position);
+    }
+
+    private void setIVMotorbikeImage(ViewHolder viewHolder, int resID) {
+        Glide.with(viewHolder.getIvMotorbikeImage().getContext()).load(resID).thumbnail(0.1f).override(400, 400).into(viewHolder.getIvMotorbikeImage());
     }
 }

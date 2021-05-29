@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
@@ -56,9 +58,12 @@ public class MotorbikeAdapter extends ArrayAdapter<Motorbike> {
         truncatedPrice = truncatedPrice.substring(0, truncatedPrice.length() - 2);
         viewHolder.tvPrice.setText('$' + truncatedPrice);
 
-        int resID = bike.getImage();
-        viewHolder.ivMotorbikeImage.setImageResource(resID);
+        setIVMotorbikeImage(viewHolder, bike.getImage());
 
         return convertView;
+    }
+
+    private void setIVMotorbikeImage(ViewHolder viewHolder, int resID) {
+        Glide.with(viewHolder.ivMotorbikeImage.getContext()).load(resID).thumbnail(0.25f).override(1000, 750).into(viewHolder.ivMotorbikeImage);
     }
 }
