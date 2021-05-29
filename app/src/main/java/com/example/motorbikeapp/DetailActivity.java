@@ -158,7 +158,7 @@ public class DetailActivity extends AppCompatActivity {
                 svDetailActivity.post(new Runnable() {
                     @Override
                     public void run() {
-                        svDetailActivity.smoothScrollTo(0, svDetailActivity.getHeight());
+                        svDetailActivity.smoothScrollTo(0, (int) tvDescription.getTop());
                     }
                 });
             } else {

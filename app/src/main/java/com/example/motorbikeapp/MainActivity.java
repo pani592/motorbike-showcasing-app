@@ -85,9 +85,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
                 searchView.setIconified(true);
                 searchItem.collapseActionView();
 
-                // Start search with filter
+                // Remove whitespace from beginning and end of query
+                String parsedQuery = query.trim();
+
+                // Start search with filter (query)
                 Intent searchActivity = new Intent(getBaseContext(), ListActivity.class);
-                searchActivity.putExtra("filter", query);
+                searchActivity.putExtra("filter", parsedQuery);
                 startActivity(searchActivity);
 
                 return true;
