@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -110,9 +111,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
             cruisersListActivity.putExtra("filter", "Cruiser");
             startActivity(cruisersListActivity);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             // note: the above line is no longer needed as I have applied a slide transition under themes,
-            // I leave it here to allow differing transitions to be applied.
+            // I leave it here in case we want to override it at some stage.
         }
     };
 
@@ -121,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent roadstersListActivity = new Intent(getBaseContext(), ListActivity.class);
             roadstersListActivity.putExtra("filter", "Roadster");
             startActivity(roadstersListActivity);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent sportbikesListActivity = new Intent(getBaseContext(), ListActivity.class);
             sportbikesListActivity.putExtra("filter", "Sportbike");
             startActivity(sportbikesListActivity);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -139,7 +138,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent nakedListActivity = new Intent(getBaseContext(), ListActivity.class);
             nakedListActivity.putExtra("filter", "Naked");
             startActivity(nakedListActivity);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -148,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent adventureListActivity = new Intent(getBaseContext(), ListActivity.class);
             adventureListActivity.putExtra("filter", "Adventure");
             startActivity(adventureListActivity);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -186,6 +183,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(BIKE_DETAIL_KEY, TopMotorbikeList.getInstance().getBikeList().get(position));
 
-        startActivity(intent);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
+        startActivity(intent, options.toBundle());
+        //startActivity(intent);
     }
 }

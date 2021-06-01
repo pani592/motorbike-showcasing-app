@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -67,7 +68,10 @@ public class ListActivity extends AppCompatActivity {
                 // Launch the detail view passing a bike as an extra
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
                 intent.putExtra(BIKE_DETAIL_KEY, bikeAdapter.getItem(position));
-                startActivity(intent);
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ListActivity.this);
+                startActivity(intent, options.toBundle());
+                //startActivity(intent);
             }
         });
     }
