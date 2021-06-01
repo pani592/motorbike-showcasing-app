@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity implements RecyclerAdapter.OnItemListener {
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.setTitle("Home Screen");
+        //this.setTitle("Home Screen");
 
         svMainActivity = (ScrollView) findViewById(R.id.svMainActivity);
 
@@ -76,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
         getMenuInflater().inflate(R.menu.main_menu, menu);
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setIconifiedByDefault(false);
+        searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -109,6 +110,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
             cruisersListActivity.putExtra("filter", "Cruiser");
             startActivity(cruisersListActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            // note: the above line is no longer needed as I have applied a slide transition under themes,
+            // I leave it here to allow differing transitions to be applied.
         }
     };
 
@@ -117,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent roadstersListActivity = new Intent(getBaseContext(), ListActivity.class);
             roadstersListActivity.putExtra("filter", "Roadster");
             startActivity(roadstersListActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -125,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent sportbikesListActivity = new Intent(getBaseContext(), ListActivity.class);
             sportbikesListActivity.putExtra("filter", "Sportbike");
             startActivity(sportbikesListActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -133,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent nakedListActivity = new Intent(getBaseContext(), ListActivity.class);
             nakedListActivity.putExtra("filter", "Naked");
             startActivity(nakedListActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
@@ -141,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent adventureListActivity = new Intent(getBaseContext(), ListActivity.class);
             adventureListActivity.putExtra("filter", "Adventure");
             startActivity(adventureListActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     };
 
