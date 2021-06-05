@@ -18,6 +18,13 @@
 
     </style>
 
+    <!-- Launcher theme. -->
+    <!-- The launcher theme. It sets the main window background to the launch_screen drawable -->
+    <style name="Theme.Launcher" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
+    <!-- App Animations. -->
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>

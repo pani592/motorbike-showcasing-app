@@ -40,6 +40,9 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Get rid of the Launcher theme on starting DetailActivity
+        setTheme(R.style.Theme_MotorbikeApp);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 

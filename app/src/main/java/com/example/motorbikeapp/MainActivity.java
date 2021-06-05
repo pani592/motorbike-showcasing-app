@@ -41,10 +41,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Get rid of the Launcher theme on starting MainActivity
+        setTheme(R.style.Theme_MotorbikeApp);
+
+        // Set the visible content for MainActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //this.setTitle("Home Screen");
 
+        // Finding the main scroll activity so we can reset the position of the page later
         svMainActivity = (ScrollView) findViewById(R.id.svMainActivity);
 
         // Find the RecyclerView for our top picks and initialise it

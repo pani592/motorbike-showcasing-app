@@ -80,13 +80,13 @@
                 android:textColor="@color/black"
                 android:text="Description" />
 
-
             <Button
                 android:id="@+id/btShowMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="0dp"
                 android:background="@android:color/transparent"
+                android:textColor="@android:color/white"
                 android:textAllCaps="true"
                 android:text="Show more"/>
 
