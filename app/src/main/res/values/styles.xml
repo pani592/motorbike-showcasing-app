@@ -5,7 +5,10 @@
         <item name="cardElevation">8dp</item>
         <item name="cardBackgroundColor">#ffffff</item>
         <item name="android:layout_weight">2</item>
-        <item name="cardCornerRadius">20dp</item>
+        <item name="cardCornerRadius">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">8dp</item>
     </style>
 
     <style name="CategoryTextStyle">
@@ -15,6 +18,17 @@
         <item name="android:layout_margin">16dp</item>
         <item name="android:textColor">#000051</item>
         <item name="android:textAllCaps">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="CategoryImageStyle">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="standardTextStyle">
