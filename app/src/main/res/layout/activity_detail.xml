@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".DetailActivity"
-    style="@style/backgroundStyle"
-    >
+    style="@style/backgroundStyle">
 
     <ScrollView
         android:id="@+id/svDetailActivity"
