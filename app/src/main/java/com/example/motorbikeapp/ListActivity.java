@@ -74,7 +74,6 @@ public class ListActivity extends AppCompatActivity {
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ListActivity.this);
                 startActivity(intent, options.toBundle());
-                //startActivity(intent);
             }
         });
     }

@@ -115,9 +115,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
             Intent cruisersListActivity = new Intent(getBaseContext(), ListActivity.class);
             cruisersListActivity.putExtra("filter", "Cruiser");
             startActivity(cruisersListActivity);
-            //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            // note: the above line is no longer needed as I have applied a slide transition under themes,
-            // I leave it here in case we want to override it at some stage.
         }
     };
 
@@ -189,6 +186,5 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
         startActivity(intent, options.toBundle());
-        //startActivity(intent);
     }
 }
